@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오늘의 디저트</title>
+  <link rel="stylesheet" href="css/top.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #fff;
+    }
+
+    /* 메인 카드 영역 */
+    .main-container {
+      padding: 40px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      /* 고정 4열 */
+      gap: 40px;
+      justify-items: center;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 260px;
+      text-align: center;
+    }
+
+    .card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      background-color: #fafafa;
+    }
+
+    .card h3 {
+      margin-top: 10px;
+      font-size: 20px;
+      color: #000;
+    }
+
+    @media (max-width: 767px) {
+      .main-container {
+        padding: 20px 15px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+
+      .card img {
+        height: 180px;
+      }
+
+      .card h3 {
+        margin-top: 8px;
+        font-size: 16px;
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+      .main-container {
+        padding: 30px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+      }
+
+      .card img {
+        height: 220px;
+      }
+
+      .card h3 {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 헤더 -->
+  <header>
+    <img src="imgs/로고.jpg" alt="로고" class="logo" />
+    <h1>오늘의 디저트</h1>
+  </header>
+
+  <!-- 네비게이션 바 -->
+  <nav class="navbar">
+    <ul class="navMenu">
+      <li><a href="#">홈페이지소개</a></li>
+      <li><a href="#">카테고리</a></li>
+    </ul>
+    <div class="searchBar">
+      <input type="text" placeholder="검색어 입력" />
+    </div>
+    <div class="navIcons">
+      <button class="iconBtn" aria-label="필터"><span class="tuneIcon"></span></button>
+      <button class="iconBtn" aria-label="사용자"><span class="userIcon"></span></button>
+      <button class="iconBtn" aria-label="메뉴"><span class="menuIcon"></span></button>
+    </div>
+  </nav>
+
+  <main class="main-container">
+    <div class="card">
+      <img src="imgs/글레이즈드도넛.png" alt="글레이즈드 도넛">
+      <h3>글레이즈드 도넛</h3>
+    </div>
+    <div class="card">
+      <img src="imgs/초코도넛.png" alt="초코코팅 도넛">
+      <h3>초코코팅 도넛</h3>
+    </div>
+    <div class="card">
+      <img src="imgs/카스테라도넛.png" alt="카스테라 도넛">
+      <h3>카스테라 도넛</h3>
+    </div>
+    <div class="card">
+      <img src="imgs/레몬필링도넛.png" alt="레몬필링 도넛">
+      <h3>레몬필링 도넛</h3>
+    </div>
+    <div class="card">
+      <img src="imgs/딸기필링도넛.png" alt="딸기필링 도넛">
+      <h3>딸기필링 도넛</h3>
+    </div>
+  </main>
+
+</body>
+
+</html>
