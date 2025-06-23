@@ -4,125 +4,36 @@
 <head>
   <meta charset="UTF-8" />
   <title>디저트 리뷰</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <link rel="stylesheet" href="css/top.css" />
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: "Inter", sans-serif;
-    }
-
-    .introSection {
-      position: relative;
-      width: 100%;
-      height: 850px;
-      background-size: cover;
-      background-attachment: fixed;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 40px;
-      box-sizing: border-box;
-      overflow: hidden;
-    }
-
-    .introSection::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('imgs/소개글.png') no-repeat center center;
-      background-size: fill;
-      opacity: 0.3;
-      z-index: 0;
-    }
-
-    .introTitle,
-    .introText {
-      position: relative;
-      z-index: 1;
-    }
-
-    .introTitle {
-      font-size: 50px;
-      font-weight: 800;
-      color: #000;
-      margin-bottom: 40px;
-    }
-
-    .introText {
-      font-size: 22px;
-      font-weight: 500;
-      color: #333;
-      max-width: 100%;
-      line-height: 1.5;
-    }
-
-    @media (max-width: 767px) {
-      .introSection {
-        height: auto;
-        min-height: calc(100vh - 100px);
-        padding: 40px 20px;
-        background-attachment: scroll;
-      }
-
-      .introTitle {
-        font-size: 30px;
-        margin-bottom: 20px;
-      }
-
-      .introText {
-        font-size: 16px;
-        line-height: 1.6;
-      }
-    }
-
-    @media (min-width: 768px) and (max-width: 1024px) {
-      .introSection {
-        height: auto;
-        min-height: 700px;
-        padding: 60px 30px;
-      }
-
-      .introTitle {
-        font-size: 40px;
-        margin-bottom: 30px;
-      }
-
-      .introText {
-        font-size: 18px;
-        line-height: 1.5;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="css/intro.css" />
 </head>
 
 <body>
   <!-- 헤더 -->
   <header>
-    <img src="imgs/로고.jpg" alt="로고" class="logo" />
+    <a href="home.html">
+      <img src="imgs/로고.jpg" alt="로고" class="logo" />
+    </a>
     <h1>오늘의 디저트</h1>
   </header>
 
   <!-- 네비게이션 바 -->
   <nav class="navbar">
     <ul class="navMenu">
-      <li><a href="#">홈페이지소개</a></li>
-      <li><a href="#">카테고리</a></li>
+      <li><a href="#" class="goIntro">홈페이지소개</a></li>
+      <li><a href="#" class="goCategory">카테고리</a></li>
     </ul>
     <div class="searchBar">
-      <input type="text" placeholder="검색어 입력" />
+      <input type="text" placeholder="검색어 입력" class="searchInput" />
     </div>
     <div class="navIcons">
-      <button class="iconBtn" aria-label="필터"><span class="tuneIcon"></span></button>
-      <button class="iconBtn" aria-label="사용자"><span class="userIcon"></span></button>
-      <button class="iconBtn" aria-label="메뉴"><span class="menuIcon"></span></button>
+      <button class="iconBtn searchBtn" aria-label="필터"><span class="tuneIcon"></span></button>
+      <button class="iconBtn userBtn" aria-label="사용자"><span class="userIcon"></span></button>
+      <button class="iconBtn goCategory" aria-label="메뉴"><span class="menuIcon"></span></button>
     </div>
   </nav>
+
   <section class="introSection">
     <div class="introTitle">오늘의 디저트</div>
     <div class="introText">
@@ -132,6 +43,7 @@
       "오늘의 디저트"는 당신의 디저트 여정을 더욱 특별하게 만들어줄 것입니다.<br>지금 바로 시작해보세요!
     </div>
   </section>
+  <script src="js/top.js"></script>
 
 </body>
 

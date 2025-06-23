@@ -5,101 +5,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>오늘의 디저트</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <link rel="stylesheet" href="css/top.css">
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #fff;
-    }
-
-    /* 메인 카드 영역 */
-    .main-container {
-      padding: 40px;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      /* 고정 4열 */
-      gap: 40px;
-      justify-items: center;
-    }
-
-    .card {
-      width: 100%;
-      max-width: 260px;
-      text-align: center;
-    }
-
-    .card img {
-      width: 100%;
-      height: 260px;
-      object-fit: cover;
-      border-radius: 10px;
-      border: 1px solid #ddd;
-      background-color: #fafafa;
-    }
-
-    .card h3 {
-      margin-top: 10px;
-      font-size: 20px;
-      color: #000;
-    }
-
-    @media (max-width: 767px) {
-      .main-container {
-        padding: 20px 15px;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-      }
-
-      .card img {
-        height: 180px;
-      }
-
-      .card h3 {
-        margin-top: 8px;
-        font-size: 16px;
-      }
-    }
-
-    @media (min-width: 768px) and (max-width: 1024px) {
-      .main-container {
-        padding: 30px;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 30px;
-      }
-
-      .card img {
-        height: 220px;
-      }
-
-      .card h3 {
-        font-size: 18px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="css/search.css">
 </head>
 
 <body>
   <!-- 헤더 -->
   <header>
-    <img src="imgs/로고.jpg" alt="로고" class="logo" />
+    <a href="home.html">
+      <img src="imgs/로고.jpg" alt="로고" class="logo" />
+    </a>
     <h1>오늘의 디저트</h1>
   </header>
 
   <!-- 네비게이션 바 -->
   <nav class="navbar">
     <ul class="navMenu">
-      <li><a href="#">홈페이지소개</a></li>
-      <li><a href="#">카테고리</a></li>
+      <li><a href="#" class="goIntro">홈페이지소개</a></li>
+      <li><a href="#" class="goCategory">카테고리</a></li>
     </ul>
     <div class="searchBar">
-      <input type="text" placeholder="검색어 입력" />
+      <input type="text" placeholder="검색어 입력" class="searchInput" />
     </div>
     <div class="navIcons">
-      <button class="iconBtn" aria-label="필터"><span class="tuneIcon"></span></button>
-      <button class="iconBtn" aria-label="사용자"><span class="userIcon"></span></button>
-      <button class="iconBtn" aria-label="메뉴"><span class="menuIcon"></span></button>
+      <button class="iconBtn searchBtn" aria-label="필터"><span class="tuneIcon"></span></button>
+      <button class="iconBtn userBtn" aria-label="사용자"><span class="userIcon"></span></button>
+      <button class="iconBtn goCategory" aria-label="메뉴"><span class="menuIcon"></span></button>
     </div>
   </nav>
 
@@ -125,7 +57,8 @@
       <h3>딸기필링 도넛</h3>
     </div>
   </main>
-
+  <script src="js/top.js"></script>
+  <script src="js/search.js"></script>
 </body>
 
 </html>

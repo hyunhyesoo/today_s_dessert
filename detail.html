@@ -5,207 +5,34 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <link rel="stylesheet" href="css/top.css">
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      font-family: 'Pretendard', sans-serif;
-      background-color: #fff;
-    }
+  <link rel="stylesheet" href="css/detail.css">
 
-    .mainContainer {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .pageTitle {
-      text-align: center;
-      font-size: 50px;
-      margin-bottom: 30px;
-    }
-
-    .product {
-      background-color: #fff8f8;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      position: relative;
-    }
-
-    .productContent {
-      display: flex;
-      align-items: flex-start;
-      gap: 30px;
-    }
-
-    .productImage {
-      width: 300px;
-      border-radius: 15px;
-    }
-
-    .productRight {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-    }
-
-    .productText {
-      margin-bottom: 10px;
-    }
-
-    .productName {
-      font-size: 30px;
-      font-weight: bold;
-      margin-bottom: 10px;
-
-    }
-
-    .productDetail {
-      font-size: 16px;
-      color: #444;
-    }
-
-    .favoriteIcon {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 30px;
-      cursor: pointer;
-    }
-
-    .productAction {
-      display: flex;
-      justify-content: flex-end;
-      margin-top: 10px;
-      gap: 16px;
-    }
-
-    .likeBtn,
-    .commentBtn {
-      background: none;
-      border: none;
-      font-size: 30px;
-      cursor: pointer;
-      display: flex;
-    }
-
-    .productInfo {
-      margin-top: 30px;
-      text-align: center;
-      font-size: 16px;
-      color: #666;
-      list-style: none;
-      padding: 0;
-      line-height: 1.6;
-    }
-
-    @media (max-width: 767px) {
-  .mainContainer {
-    padding: 20px 10px;
-  }
-
-  .product {
-    padding: 20px;
-  }
-
-  .productContent {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .productImage {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    margin-bottom: 20px;
-  }
-
-  .productText {
-    width: 100%;
-    text-align: center;
-  }
-
-  /* 참고: 아래 .productTitle 클래스는 현재 detail.html의 상품명(<h3 class="productName">)이나 
-     페이지 제목(<h2 class="pageTitle">)에는 직접 사용되지 않고 있습니다. 
-     실제 사용된 클래스명으로 변경하시거나, 의도된 부분이 맞는지 확인해보시는 것이 좋습니다. */
-  .productTitle {
-    font-size: 24px;
-  }
-
-  .productDetail {
-    font-size: 16px;
-  }
-
-  .productAction {
-    justify-content: center;
-    position: static;
-    margin-top: 16px;
-  }
-
-  .likeBtn,
-  .commentBtn {
-    font-size: 30px;
-  }
-
-  .productInfo {
-    font-size: 14px;
-    margin-top: 30px;
-  }
-}
-
-      /* 참고: 아래 .productTitle 클래스는 현재 detail.html의 상품명(<h3 class="productName">)이나 
-     페이지 제목(<h2 class="pageTitle">)에는 사용되지 않고 있습니다. 
-     필요시 실제 사용된 클래스명으로 변경하시거나, 의도된 부분이 맞는지 확인해보세요. */
-      .productTitle {
-        font-size: 24px;
-      }
-
-      .productDetail {
-        font-size: 16px;
-      }
-
-      .productAction {
-        justify-content: center;
-        position: static;
-        margin-top: 16px;
-      }
-
-      .likeBtn,
-      .commentBtn {
-        font-size: 30px;
-      }
-
-      .productInfo {
-        font-size: 14px;
-        margin-top: 30px;
-      }
-  </style>
 </head>
 
 <body>
   <!-- 헤더 -->
   <header>
-    <img src="imgs/로고.jpg" class="logo" />
+    <a href="home.html">
+      <img src="imgs/로고.jpg" alt="로고" class="logo" />
+    </a>
     <h1>오늘의 디저트</h1>
   </header>
 
   <!-- 네비게이션 바 -->
   <nav class="navbar">
     <ul class="navMenu">
-      <li><a href="#">홈페이지소개</a></li>
-      <li><a href="#">카테고리</a></li>
+      <li><a href="#" class="goIntro">홈페이지소개</a></li>
+      <li><a href="#" class="goCategory">카테고리</a></li>
     </ul>
     <div class="searchBar">
-      <input type="text" placeholder="검색어 입력" />
+      <input type="text" placeholder="검색어 입력" class="searchInput" />
     </div>
     <div class="navIcons">
-      <button class="iconBtn" aria-label="필터"><span class="tuneIcon"></span></button>
-      <button class="iconBtn" aria-label="사용자"><span class="userIcon"></span></button>
-      <button class="iconBtn" aria-label="메뉴"><span class="menuIcon"></span></button>
+      <button class="iconBtn searchBtn" aria-label="필터"><span class="tuneIcon"></span></button>
+      <button class="iconBtn userBtn" aria-label="사용자"><span class="userIcon"></span></button>
+      <button class="iconBtn goCategory" aria-label="메뉴"><span class="menuIcon"></span></button>
     </div>
   </nav>
 
@@ -213,7 +40,7 @@
     <h2 class="productTitle">메뉴 상세보기</h2>
 
     <div class="product">
-      <div class="favoriteIcon">⭐</div>
+      <div class="favoriteIcon" id="favoriteBtn">⭐</div>
       <div class="productContent">
         <img src="imgs/글레이즈드도넛.png" class="productImage" />
 
@@ -224,7 +51,7 @@
           </div>
 
           <div class="productAction">
-            <button class="likeBtn">💗</button>
+            <button class="likeBtn">💗 <span class="likeCount">0</span></button>
             <button class="commentBtn">💬</button>
           </div>
         </div>
@@ -238,6 +65,8 @@
     </div>
   </div>
 
+  <script src="js/top.js"></script>
+  <script src="js/detail.js"></script>
 </body>
 
 </html>

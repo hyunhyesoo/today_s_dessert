@@ -5,273 +5,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>오늘의 디저트</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <link rel="stylesheet" href="css/top.css">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: 'Pretendard', sans-serif;
-            background-color: #fff;
-        }
-
-        /* 먹고 싶어요! 목록 섹션 */
-        .wishlistSection {
-            padding: 20px 40px;
-            margin-top: 30px;
-        }
-
-        .wishlistHeader {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 20px;
-            position: relative;
-            gap: 20px;
-        }
-
-        .wishlistStar {
-            width: 40px;
-            height: 40px;
-            background-image: url('imgs/star.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            margin-right: 10px;
-            display: inline-block;
-        }
-
-        .wishlistTitle {
-            font-size: 50px;
-            font-weight: bold;
-            color: #000000;
-            margin: 0;
-        }
-
-        .wishlistDelete {
-            display: flex;
-            position: absolute;
-            font-size: 18px;
-            right: 0;
-            margin-right: 200px;
-            margin-top: 50px;
-            gap: 15px;
-            cursor: pointer;
-        }
-
-        /* 디저트 카드 그리드 */
-        .cardGrid {
-            padding: 40px;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            /* 고정 3열 */
-            gap: 25px;
-            justify-items: center;
-        }
-
-        .card {
-            width: 100%;
-            max-width: 260px;
-            /* 이미지에 맞게 최대 너비 설정 */
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-            text-align: center;
-            padding-bottom: 15px;
-        }
-
-        .cardImage {
-            width: 100%;
-            height: 200px;
-            background-color: #fafafa;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            border-bottom: 1px solid #eee;
-            position: relative;
-
-            /* 체크 아이콘 위치 지정을 위해 */
-        }
-
-        .cardImage {
-            width: 100%;
-            height: 100%;
-            object-fit: fill;
-            border-radius: 10px 10px 0 0;
-        }
-
-        .checkIcon {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            width: 28px;
-            height: 28px;
-            background-image: url('imgs/check.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            z-index: 10;
-        }
-
-        .card h3 {
-            font-size: 20px;
-            color: #333;
-            margin: 15px 0 5px 0;
-            padding: 0 10px;
-        }
-
-        @media (max-width: 767px) {
-            .wishlistSection {
-                padding: 15px 20px;
-                margin-top: 20px;
-            }
-
-            .wishlistHeader {
-                flex-direction: column;
-                gap: 10px;
-                text-align: center;
-                margin-bottom: 15px;
-                align-items: center;
-            }
-
-            .wishlistStar {
-                width: 30px;
-                height: 30px;
-                margin-right: 0;
-                margin-bottom: 5px;
-            }
-
-            .wishlistTitle {
-                font-size: 30px;
-            }
-
-            .wishlistDelete {
-                position: static;
-                font-size: 16px;
-                margin: 10px 0 0 0;
-                justify-content: center;
-                width: 100%;
-                text-align: center;
-            }
-
-            .cardGrid {
-                padding: 20px 10px;
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .card {
-                max-width: 100%;
-            }
-
-            .cardImage {
-                height: 180px;
-            }
-
-            .cardImage img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                border-radius: 10px 10px 0 0;
-            }
-
-            .checkIcon {
-                width: 24px;
-                height: 24px;
-                top: 8px;
-                left: 8px;
-            }
-
-            .card h3 {
-                font-size: 18px;
-                margin: 10px 0 5px 0;
-            }
-        }
-
-        @media (min-width: 768px) and (max-width: 1024px) {
-            .wishlistSection {
-                padding: 20px 30px;
-            }
-
-            .wishlistHeader {
-                gap: 15px;
-                align-items: center;
-            }
-
-            .wishlistStar {
-                width: 35px;
-                height: 35px;
-            }
-
-            .wishlistTitle {
-                font-size: 40px;
-            }
-
-            .wishlistDelete {
-                font-size: 17px;
-                position: absolute;
-                right: 15px;
-                top: 50%;
-                transform: translateY(-50%);
-                margin: 0;
-            }
-
-            .cardGrid {
-                padding: 30px;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
-            }
-
-            .card {
-                max-width: 280px;
-            }
-
-            .cardImage {
-                height: 190px;
-            }
-
-            .cardImage img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                border-radius: 10px 10px 0 0;
-            }
-
-            .checkIcon {
-                width: 26px;
-                height: 26px;
-            }
-
-            .card h3 {
-                font-size: 19px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/favorite.css">
 </head>
 
 <body>
     <!-- 헤더 -->
     <header>
-        <img src="imgs/로고.jpg" alt="로고" class="logo" />
+        <a href="home.html">
+            <img src="imgs/로고.jpg" alt="로고" class="logo" />
+        </a>
         <h1>오늘의 디저트</h1>
     </header>
 
     <!-- 네비게이션 바 -->
     <nav class="navbar">
         <ul class="navMenu">
-            <li><a href="#">홈페이지소개</a></li>
-            <li><a href="#">카테고리</a></li>
+            <li><a href="#" class="goIntro">홈페이지소개</a></li>
+            <li><a href="#" class="goCategory">카테고리</a></li>
         </ul>
         <div class="searchBar">
-            <input type="text" placeholder="검색어 입력" />
+            <input type="text" placeholder="검색어 입력" class="searchInput" />
         </div>
         <div class="navIcons">
-            <button class="iconBtn" aria-label="필터"><span class="tuneIcon"></span></button>
-            <button class="iconBtn" aria-label="사용자"><span class="userIcon"></span></button>
-            <button class="iconBtn" aria-label="메뉴"><span class="menuIcon"></span></button>
+            <button class="iconBtn searchBtn" aria-label="필터"><span class="tuneIcon"></span></button>
+            <button class="iconBtn userBtn" aria-label="사용자"><span class="userIcon"></span></button>
+            <button class="iconBtn goCategory" aria-label="메뉴"><span class="menuIcon"></span></button>
         </div>
     </nav>
 
@@ -312,6 +72,8 @@
         </div>
         </div>
     </section>
+    <script src="js/top.js"></script>
+  <script src="js/favorite.js"></script>
 </body>
 
 </html>

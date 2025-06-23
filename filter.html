@@ -5,213 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <link rel="stylesheet" href="css/top.css">
-    <style>
-        .filterPage {
-            padding: 20px;
-            font-family: 'Noto Sans KR', sans-serif;
-            background-color: #fff;
-            max-width: 800px;
-            margin: 0 auto;
-            /* 가운데 정렬 */
-        }
-
-        .filterHeader {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        .backArrow {
-            margin-right: 12px;
-        }
-
-        .filterSection {
-            border-bottom: 1px solid #ddd;
-            padding: 15px 0;
-        }
-
-        .filterCategory {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 22px;
-            font-weight: 500;
-            cursor: pointer;
-        }
-
-        .arrow {
-            font-size: 16px;
-        }
-
-        .filterOptions {
-            margin-top: 10px;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            /* 4개씩 나열 */
-            gap: 10px;
-            justify-items: center;
-        }
-
-        .optionBtn {
-            background-color: #f0f0f0;
-            border: none;
-            padding: 8px 14px;
-            border-radius: 20px;
-            font-size: 16px;
-            cursor: pointer;
-            width: 100%;
-            /* 각 버튼 넓이를 셀에 맞춤 */
-            text-align: center;
-        }
-
-        .filterFooter {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            margin-top: 100px;
-            gap: 15px;
-        }
-
-        .resetBtn {
-            background: none;
-            border: none;
-            font-size: 30px;
-            cursor: pointer;
-        }
-
-        .applyBtn {
-            background-color: #ff7b7b;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 18px;
-            border-radius: 20px;
-            cursor: pointer;
-        }
-
-        @media (max-width: 767px) {
-            .filterPage {
-                padding: 15px;
-            }
-
-            .filterHeader {
-                font-size: 20px;
-                margin-bottom: 15px;
-            }
-
-            .backArrow {
-                margin-right: 8px;
-            }
-
-            .filterSection {
-                padding: 12px 0;
-            }
-
-            .filterCategory {
-                font-size: 18px;
-            }
-
-            .arrow {
-                font-size: 14px;
-            }
-
-            .filterOptions {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 8px;
-                margin-top: 8px;
-            }
-
-            .optionBtn {
-                padding: 8px 12px;
-                font-size: 14px;
-                border-radius: 16px;
-            }
-
-            .filterFooter {
-                flex-direction: column-reverse;
-                gap: 12px;
-                margin-top: 40px;
-                align-items: stretch;
-            }
-
-            .resetBtn,
-            .applyBtn {
-                width: 100%;
-                box-sizing: border-box;
-            }
-
-            .resetBtn {
-                font-size: 24px;
-                padding: 10px;
-                background-color: #f0f0f0;
-                color: #333;
-                border-radius: 8px;
-                text-align: center;
-            }
-
-            .applyBtn {
-                padding: 12px;
-                font-size: 16px;
-                border-radius: 8px;
-            }
-        }
-
-        @media (min-width: 768px) and (max-width: 1024px) {
-            .filterHeader {
-                font-size: 22px;
-            }
-
-            .filterCategory {
-                font-size: 20px;
-            }
-
-            .filterOptions {
-                gap: 8px;
-            }
-
-            .optionBtn {
-                padding: 7px 12px;
-                font-size: 15px;
-            }
-
-            .filterFooter {
-                margin-top: 60px;
-                gap: 12px;
-            }
-
-            .resetBtn {
-                font-size: 28px;
-            }
-
-            .applyBtn {
-                padding: 9px 18px;
-                font-size: 17px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/filter.css">
 </head>
 
 <body>
     <!-- 헤더 -->
     <header>
-        <img src="imgs/로고.jpg" alt="로고" class="logo" />
+        <a href="home.html">
+            <img src="imgs/로고.jpg" alt="로고" class="logo" />
+        </a>
         <h1>오늘의 디저트</h1>
     </header>
 
     <!-- 네비게이션 바 -->
     <nav class="navbar">
         <ul class="navMenu">
-            <li><a href="#">홈페이지소개</a></li>
-            <li><a href="#">카테고리</a></li>
+            <li><a href="#" class="goIntro">홈페이지소개</a></li>
+            <li><a href="#" class="goCategory">카테고리</a></li>
         </ul>
         <div class="searchBar">
-            <input type="text" placeholder="검색어 입력" />
+            <input type="text" placeholder="검색어 입력" class="searchInput" />
         </div>
         <div class="navIcons">
-            <button class="iconBtn" aria-label="필터"><span class="tuneIcon"></span></button>
-            <button class="iconBtn" aria-label="사용자"><span class="userIcon"></span></button>
-            <button class="iconBtn" aria-label="메뉴"><span class="menuIcon"></span></button>
+            <button class="iconBtn searchBtn" aria-label="필터"><span class="tuneIcon"></span></button>
+            <button class="iconBtn userBtn" aria-label="사용자"><span class="userIcon"></span></button>
+            <button class="iconBtn goCategory" aria-label="메뉴"><span class="menuIcon"></span></button>
         </div>
     </nav>
 
@@ -253,7 +73,8 @@
             <button class="applyBtn">필터 적용</button>
         </div>
     </main>
-
+    <script src="js/top.js"></script>
+    <script src="js/filter.js"></script>
 </body>
 
 </html>
